@@ -3,16 +3,16 @@ const events = [
     {
         id: "1",
         title: "Thanksgiving Potluck",
-        date: "2025-11-29",
+        date: "2030-11-29",
         image_url: "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=500",
         host_id: 1,
         rsvps: [{ user_id: 1 }, { user_id: '5' }, { user_id: 3 }]
     },
     {
         id: 2,
-        title: "EventExpo 2026",
-        date: '2026-04-01',
-        description: "Discover the future of event planning at EventExpo 2026. Network with industry leaders, explore cutting-edge technologies, and attend inspiring workshops.",
+        title: "EventExpo 2032",
+        date: '2032-04-01',
+        description: "Discover the future of event planning at EventExpo 2032. Network with industry leaders, explore cutting-edge technologies, and attend inspiring workshops.",
         host_id: "3"
     }
 ];
