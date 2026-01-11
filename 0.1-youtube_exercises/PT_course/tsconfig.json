@@ -1,44 +1,30 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
+    /* Layout de Arquivos */
+    "rootDir": "src",         // Onde o TS procura seu código fonte original.
+    "outDir": "dist",         // Para onde vai o código JavaScript convertido (compilado).
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    /* Configurações de Ambiente */
+    "module": "nodenext",     // Usa o sistema de módulos mais moderno do Node.js (suporta ESM).
+    "target": "esnext",       // Versão do JavaScript final. 'esnext' usa as funcionalidades mais recentes.
+    "types": [],              // Limita quais pacotes de tipos (@types) são incluídos globalmente.
 
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    /* Saídas Adicionais */
+    "sourceMap": true,        // Cria arquivos .map que permitem debugar o código TS direto no navegador/Node.
+    "declaration": true,      // Gera arquivos .d.ts (essencial para bibliotecas, descreve os tipos para outros).
+    "declarationMap": true,   // Mapeia os arquivos .d.ts de volta ao .ts original para navegação de código.
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    /* Verificações Estritas (Segurança Extra) */
+    "noUncheckedIndexedAccess": true, // Se você acessar array[10], o TS avisa que pode ser 'undefined'.
+    "exactOptionalPropertyTypes": true, // Impede definir como 'undefined' uma propriedade opcional (ex: {age?: number}).
 
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
+    /* Opções Recomendadas e Performance */
+    "strict": true,           // Ativa todas as verificações rigorosas (essencial para um código seguro).
+    "jsx": "react-jsx",       // Permite usar arquivos .tsx (React) sem precisar importar o React manualmente.
+    "verbatimModuleSyntax": true, // Garante que imports de tipos não apareçam no JavaScript final.
+    "isolatedModules": true,  // Garante que cada arquivo possa ser transpilado com segurança individualmente.
+    "noUncheckedSideEffectImports": true, // Evita erros ao importar arquivos que apenas executam código (como CSS).
+    "moduleDetection": "force", // Garante que o TS trate todos os arquivos como módulos, evitando conflitos de escopo global.
+    "skipLibCheck": true      // Pula a checagem de tipos dentro da pasta node_modules (acelera a compilação).
   }
 }

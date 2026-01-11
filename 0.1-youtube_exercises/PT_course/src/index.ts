@@ -1,43 +1,75 @@
-// Demonstração de tipos primitivos em TypeScript
-let idadeUsuario = 5;
+/**
+ * TIPOS PRIMITIVOS
+ * O TypeScript infere (descobre sozinho) o tipo se você atribuir o valor na criação,
+ * ou você pode declarar explicitamente usando ': tipo'.
+ */
+let idadeUsuario = 5; // Aqui o TS inferiu 'number' automaticamente
 const nomeUsuario: string = "rahian";
 const entradaValidaNoFormulario: boolean = true;
 
-// Tipo any: aceita qualquer valor, mas deve ser evitado em produção
+/**
+ * TIPO ANY
+ * Utilidade: Desliga a verificação de tipos do TS para esta variável.
+ * Cuidado: Deve ser usado apenas em casos extremos ou migrações de código JS antigo,
+ * pois retira a segurança que o TypeScript oferece.
+ */
 let valorQualquer: any = 5;
 valorQualquer = 12;
-valorQualquer = true;
+valorQualquer = true; // Não gera erro, mesmo mudando de número para booleano
 
-// Arrays tipados: garantem que todos os elementos sigam o mesmo tipo
+/**
+ * ARRAYS (LISTAS)
+ * Utilidade: Garante que a lista não receba dados "sujos".
+ * Se tentar dar um .push("texto") na 'listaIds', o TS gerará erro.
+ */
 const listaIds: number[] = [1, 2, 3, 4, 5];
 const listaBools: boolean[] = [true, false, true, false];
 const listaNomes: string[] = ["user", "usuario"];
 
-// Tupla: número (id) + string (nome) em posições fixas
-const tuplaPessoa: [number, string] = [1, "user"];
+/**
+ * TUPLES (TUPLAS)
+ * Utilidade: Arrays com tamanho fixo e tipos específicos para cada posição.
+ * Muito comum em hooks (como o useState do React) ou coordenadas geográficas.
+ */
+const tuplaPessoa: [number, string] = [1, "user"]; // Posição 0 sempre number, 1 sempre string
 
-// Array de tuplas: útil para coleções com estrutura fixa
+// Array de tuplas: Uma lista onde cada item é um par [id, nome]
 const listaTuplasPessoas: [number, string][] = [
-    [1, "jao"],
-    [2, "jane"]
+  [1, "jao"],
+  [2, "jane"],
 ];
 
-// União de tipos: o ID pode ser string, number ou boolean
+/**
+ * UNION TYPES (UNIÃO DE TIPOS)
+ * Utilidade: Quando um dado pode vir de diferentes formas.
+ * Exemplo: Um ID que pode vir do banco como número ou UUID (string).
+ */
 const idProdutoFlexivel: string | number | boolean = false;
 
-// Enum: conjunto nomeado de valores possíveis
+/**
+ * ENUMS (ENUMERAÇÕES)
+ * Utilidade: Criar um conjunto de constantes nomeadas para facilitar a leitura.
+ * Em vez de usar números "mágicos" (1, 2) no código, você usa nomes claros.
+ */
 enum Direcao {
-    Up = 1,
-    Down = 2,
-    Left = "Esquerda"
+  Up = 1,
+  Down = 2,
+  Left = "Esquerda",
 }
 
-const direcaoInicial = Direcao.Up;
+const direcaoInicial = Direcao.Up; // O valor real aqui é 1
 
-// Type assertion: dizendo ao TS qual é o tipo esperado
+/**
+ * TYPE ASSERTION (AFIRMAÇÃO DE TIPO)
+ * Utilidade: Quando você (desenvolvedor) sabe mais sobre o tipo do que o TypeScript.
+ * É como dizer: "Confia em mim, eu sei que esse dado que veio como 'any' é uma string".
+ */
 const nomeProdutoDesconhecido: any = "Bone";
-// Usando as duas sintaxes de assertion (preferível `as`)
+
+// Sintaxe 'as' (recomendada, especialmente para quem usa React)
 const nomeProdutoConvertido = nomeProdutoDesconhecido as string;
+
+// Sintaxe '<>' (faz o mesmo, mas pode conflitar com tags HTML/JSX)
 const nomeProdutoConvertidoAlternativo = <string>nomeProdutoDesconhecido;
 
 console.log(idadeUsuario);
