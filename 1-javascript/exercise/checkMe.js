@@ -22,5 +22,3 @@ console.log(language); // TypeScript
 console.log(language.released); // undefined
 console.log(language.company); // TypeError: console.lgo is not a function
 console.log(language.officialName); // undefined
-
-
